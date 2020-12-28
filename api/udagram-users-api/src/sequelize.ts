@@ -1,4 +1,4 @@
-import {Sequelize} from 'sequelize-typescript';
+import {Sequelize, SequelizeOptions} from 'sequelize-typescript';
 import {config} from './config/config';
 
 
@@ -9,4 +9,4 @@ export const sequelize: Sequelize = new Sequelize({
   'host': config.host,
   'dialect': config.dialect,
   'storage': ':memory:',
-});
+} as SequelizeOptions);
