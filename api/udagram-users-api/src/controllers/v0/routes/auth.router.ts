@@ -1,7 +1,7 @@
 import {Router, Request, Response} from 'express';
 
 import {User} from '../models/User';
-import * as c from '../../../../config/config';
+import * as c from '../../../config/config';
 
 import * as bcrypt from 'bcrypt';
 import * as jwt from 'jsonwebtoken';
