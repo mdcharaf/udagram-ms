@@ -13,8 +13,7 @@ before_script:
 
 script:
   - docker --version
-  - echo "Building users api project"
-  - docker build -t udagram-api-users api/udagram-api-users/.
+  - docker build -t udagram-api-users ./api/udagram-api-users/.
   - docker tag udagram-api-users mcharaf/udagram-api-users:latest
 
 after_success:
