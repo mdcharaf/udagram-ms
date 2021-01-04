@@ -1,0 +1,22 @@
+language: node_js
+node_js: 
+  - 12.18
+
+services: 
+  - docker
+
+install: 
+  - echo "Nothing needs to be installed"
+
+before_script:
+  - echo "No tests"
+
+script:
+  - docker --version
+  - echo "Building users api project"
+  - docker build -t udagram-api-users api/udagram-api-users/.
+  - docker tag udagram-api-users mcharaf/udagram-api-users:latest
+
+after_success:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push mcharaf/udagram-api-users
