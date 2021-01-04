@@ -9,13 +9,24 @@ install:
   - echo "Nothing needs to be installed"
 
 before_script:
-  - echo "No tests"
+  - echo "Do nothing before script"
 
 script:
   - docker --version
+  # Builidng Users Api
   - docker build -t udagram-users-api api/udagram-users-api/.
   - docker tag udagram-users-api mcharaf/udagram-users-api:latest
 
+  # Building Feed Api
+  - docker build -t udagram-feed-api api/udagram-feed-api/.
+  - docker tag udagram-feed-api mcharaf/udagram-feed-api:latest
+
+  # Building Frontend
+  - docker build -t udagram-frontend api/frontend/udagram-frontend
+  - docker tag udagram-frontend mcharaf/udagram-frontend:latest
+
 after_success:
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push mcharaf/udagram-users-api
+  - docker push mcharaf/udagram-users-api:latest
+  - docker push mcharaf/udagram-feed-api:latest
+  - docker push mcharaf/udagram-frontend:latest
