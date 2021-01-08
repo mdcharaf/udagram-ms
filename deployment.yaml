@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: udagram-ms
+  labels:
+    app: udagram-ms
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: udagram-ms
+  template:
+    metadata:
+      labels:
+        app: udagram-ms
+    spec:
+      containers:
+      - name: udagram-users-api
+        image: mcharaf/udagram-users-api
+        ports:
+        - containerPort: 80
+      - name: udagram-feed-api
+        image: mcharaf/udagram-feed-api
+        ports:
+        - containerPort: 80
+      - name: udagram-frontend
+        image: mcharaf/udagram-frontend
+        ports:
+        - containerPort: 80
