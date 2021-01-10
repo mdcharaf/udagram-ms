@@ -38,7 +38,9 @@ import {V0_USER_MODELS} from './controllers/v0/model.index';
 
   // Start the Server
   app.listen( port, () => {
-    console.log( `server running ${config.url}` );
+    console.log( `server running on port ${process.env.PORT}` );
+    console.log(`Db Host: ${process.env.POSTGRES_HOST}, ${process.env.POSTGRES_DB}, ${process.env.POSTGRES_USERNAME}` );
+    console.log(`Bucket: ${process.env.AWS_BUCKET}` );
     console.log( `press CTRL+C to stop server` );
   } );
 })();
