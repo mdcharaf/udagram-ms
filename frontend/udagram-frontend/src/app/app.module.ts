@@ -11,7 +11,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { MenubarComponent } from './menubar/menubar.component';
 
 import { AuthModule } from './auth/auth.module';
-import { ApiService } from './api/api.service';
+import UsersApiService from './api/users.service.api';
+import FeedApiService from './api/feed.service.api';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ApiService } from './api/api.service';
     AuthModule
   ],
   providers: [
-    ApiService,
+    UsersApiService,
+    FeedApiService,
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
