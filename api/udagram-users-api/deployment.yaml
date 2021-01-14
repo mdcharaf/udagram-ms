@@ -21,4 +21,4 @@ spec:
         - containerPort: 80
         envFrom:
         - configMapRef:
-          name: udagram-users-api-config
+            name: users-settings

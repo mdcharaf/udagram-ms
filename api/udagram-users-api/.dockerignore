@@ -2,3 +2,5 @@ node_modules
 npm-debug.log
 www
 prod.env
+deployment.yaml
+service.yaml
