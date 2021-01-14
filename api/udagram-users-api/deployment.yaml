@@ -19,3 +19,6 @@ spec:
         image: mcharaf/udagram-users-api
         ports:
         - containerPort: 80
+        envFrom:
+        - configMapRef:
+          name: udagram-users-api-config
