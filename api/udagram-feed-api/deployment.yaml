@@ -17,6 +17,10 @@ spec:
       containers:
       - name: udagram-feed-api
         image: mcharaf/udagram-feed-api
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "400m"
         ports:
         - containerPort: 80
         envFrom:
